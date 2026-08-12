@@ -20,6 +20,7 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import type { BitDev, NextEvent, EventsIndex } from '../src/types'
+import { MS_PER_DAY, todayIndex } from '../src/day.ts'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const BITDEVS_PATH = join(root, 'src/data/bitdevs.json')
@@ -37,7 +38,6 @@ const SKIP_HOSTS = [
 /** Titles that mark an event as not actually taking place. */
 const CANCELLED = /(not happening|cancell?ed|postponed|no habr[aá]|suspend)/i
 const UA = 'bitdevsmap-aggregator'
-const MS_PER_DAY = 86_400_000
 
 // --- generic helpers -------------------------------------------------------
 
@@ -108,7 +108,7 @@ const MONTHS: Record<string, number> = {
 }
 
 interface ParsedDate {
-  /** Whole-day index (UTC), for cheap today/future comparison. */
+  /** Whole-day index, for cheap today/future comparison. */
   day: number
   /** ISO calendar day, YYYY-MM-DD. */
   iso: string
@@ -205,7 +205,9 @@ interface Outcome {
 async function main() {
   const cities = JSON.parse(readFileSync(BITDEVS_PATH, 'utf8')) as BitDev[]
   const fetchedAt = new Date().toISOString()
-  const today = Math.floor(Date.now() / MS_PER_DAY)
+  // Brazilian day: a run just after 00:00 UTC is still the previous evening in
+  // São Paulo and must not drop an event happening later that same day.
+  const today = todayIndex()
   let previous: EventsIndex = {}
   try {
     previous = JSON.parse(readFileSync(EVENTS_PATH, 'utf8')) as EventsIndex

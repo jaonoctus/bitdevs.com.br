@@ -1,40 +1,56 @@
 @import "tailwindcss";
 
 /* ============================================================
-   KYRA LABS — design tokens (dark mode subset)
+   Design tokens (dark mode subset)
    Exposed to Tailwind as utilities (text-strong, bg-surface, …)
    and as CSS variables on :root.
+
+   The page is the flag: green is the ground, yellow is every mark on it.
+     green   backgrounds only — the ink scale below is tinted, not neutral
+     yellow  the working accent: links, highlights, and city markers
+     blue    the wordmark and the hero headline, and nothing else
    ============================================================ */
 @theme {
-  --color-kyra-orange: #e36f46;
-  --color-kyra-orange-400: #ea8a66;
-  --color-kyra-orange-600: #c5572f;
-  --color-kyra-red: #9e2023;
-  --color-kyra-cyan: #00add8;
+  --color-br-yellow: #ffdf00;
+  /* Hover pair and a darker shade for borders. */
+  --color-br-yellow-300: #ffe95c;
+  --color-br-yellow-600: #b89e00;
+  --color-br-green: #009c3b;
+  --color-br-blue: #002776;
+  /* Flag blue is unreadable on the ground (~1.2:1), so type uses this lift,
+     which clears AA at 14px. Keep the two in step if either moves. */
+  --color-br-blue-400: #3f80ea;
 
+  /* Neutrals carry a green cast (hue ~150°), heaviest at the dark end where
+     they cover the most area and lightest in text, which should read as grey
+     with a hint of green rather than as green type. */
   --color-ink-000: #ffffff;
-  --color-ink-100: #ececee;
-  --color-ink-200: #d7d8db;
-  --color-ink-300: #b5b7bc;
-  --color-ink-400: #888b92;
-  --color-ink-500: #5e6168;
-  --color-ink-600: #404349;
-  --color-ink-700: #2b2d31;
-  --color-ink-800: #1b1c1f;
-  --color-ink-900: #0e0f11;
-  --color-ink-950: #060607;
+  --color-ink-100: #eaf0eb;
+  --color-ink-200: #d2ddd5;
+  --color-ink-300: #b0bfb4;
+  --color-ink-400: #82918a;
+  --color-ink-500: #59695f;
+  --color-ink-600: #3b4c41;
+  --color-ink-700: #26362c;
+  --color-ink-800: #16251b;
+  --color-ink-900: #0b1a10;
+  --color-ink-950: #04120a;
 
-  --color-surface: #101113;
-  --color-surface-2: #16171a;
-  --color-line: #26282c;
-  --color-line-strong: #34373c;
+  --color-surface: #0a1c11;
+  --color-surface-2: #0f2517;
+  --color-line: #1c3524;
+  --color-line-strong: #29472f;
 
-  --color-strong: #f4f4f5;
-  --color-body: #b5b7bc;
-  --color-muted: #888b92;
-  --color-faint: #6a6d74;
+  --color-strong: #f2f7f3;
+  --color-body: #b0bfb4;
+  --color-muted: #82918a;
+  --color-faint: #647a6b;
 
-  --color-land-dot: rgba(156, 161, 170, 0.55);
+  /* Kept neutral-light rather than tinted, so the yellow markers stay the only
+     saturated thing on the map. */
+  --color-land-dot: rgba(196, 210, 200, 0.6);
+  /* Countries around Brazil — present for context, never competing with it. */
+  --color-land-dot-dim: rgba(196, 210, 200, 0.1);
 
   --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -83,7 +99,7 @@
     position: relative;
     border: 1px solid var(--color-line);
     border-radius: 6px;
-    background: radial-gradient(120% 120% at 50% 0%, #15171b 0%, #0a0b0d 72%);
+    background: radial-gradient(120% 120% at 50% 0%, #10251a 0%, #061409 72%);
     overflow: hidden;
   }
   .map-frame::before {
@@ -131,10 +147,10 @@
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: var(--color-kyra-orange);
-    border: 2px solid #1b0f0a;
+    background: var(--color-br-yellow);
+    border: 2px solid var(--color-ink-900);
     box-shadow:
-      0 0 0 4px rgba(227, 111, 70, 0.14),
+      0 0 0 4px rgba(255, 223, 0, 0.14),
       0 1px 6px rgba(0, 0, 0, 0.5);
     transition:
       transform 0.2s var(--ease),
@@ -148,7 +164,7 @@
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    border: 1.5px solid var(--color-kyra-orange);
+    border: 1.5px solid var(--color-br-yellow);
     opacity: 0;
   }
   @media (prefers-reduced-motion: no-preference) {
@@ -162,7 +178,7 @@
   .marker.is-active .dot {
     transform: translate(-50%, -50%) scale(1.28);
     box-shadow:
-      0 0 0 5px rgba(227, 111, 70, 0.22),
+      0 0 0 5px rgba(255, 223, 0, 0.22),
       0 2px 10px rgba(0, 0, 0, 0.6);
   }
 

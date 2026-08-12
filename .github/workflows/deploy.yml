@@ -1,0 +1,51 @@
+name: Deploy site
+
+# Build the static SPA and publish it to GitHub Pages via the Actions artifact
+# flow, so nothing is ever committed (main is protected and there is no
+# gh-pages branch). Data is fetched at runtime from the `data` branch, so the
+# daily aggregate cron does not need — and does not trigger — a rebuild.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      # tsc -b (all three projects) + vite build → dist/. The site is served
+      # from the root of bitdevs.com.br, so BASE_PATH stays unset and asset URLs
+      # stay at '/'. The domain is set in the repo's Pages settings — a custom
+      # workflow deploy ignores a CNAME file, so there deliberately isn't one.
+      - name: Build
+        run: bun run build
+
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: dist
+
+      - id: deploy
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

@@ -1,4 +1,4 @@
-import sticker from '../assets/kyra-sticker.png'
+import { LANGS, useI18n } from '../i18n'
 
 function GitHubIcon() {
   return (
@@ -8,39 +8,86 @@ function GitHubIcon() {
   )
 }
 
-export default function Footer() {
+function LanguagePicker() {
+  const { lang, setLang, t } = useI18n()
+
   return (
-    <footer className="border-t border-line bg-[#08090a]">
+    <div
+      role="group"
+      aria-label={t.nav.language}
+      className="flex items-center gap-[9px] font-mono text-[11.5px] tracking-[0.04em]"
+    >
+      <span className="text-faint">{t.nav.language}</span>
+      {LANGS.map((code, i) => (
+        <span key={code} className="flex items-center gap-[9px]">
+          {i > 0 && (
+            <span className="text-line-strong" aria-hidden>
+              /
+            </span>
+          )}
+          <button
+            type="button"
+            // Each option is written in its own language, so the tag has to
+            // match or a screen reader reads "EN" with Portuguese phonetics.
+            lang={code}
+            onClick={() => setLang(code)}
+            aria-current={lang === code || undefined}
+            className={`transition-colors duration-200 ${
+              lang === code ? 'text-br-yellow' : 'text-muted hover:text-strong'
+            }`}
+          >
+            {code.toUpperCase()}
+          </button>
+        </span>
+      ))}
+    </div>
+  )
+}
+
+export default function Footer() {
+  const { t } = useI18n()
+
+  return (
+    <footer className="border-t border-line bg-[#061609]">
       <div className="wrap flex flex-wrap items-center justify-between gap-7 pt-[30px] pb-8 max-[680px]:flex-col max-[680px]:items-start max-[680px]:gap-[22px]">
-        <div className="flex items-center gap-5">
-          <img
-            src={sticker}
-            alt="Kyra Labs"
-            className="block h-auto w-[42px] drop-shadow-[0_4px_14px_rgba(0,0,0,0.4)]"
-          />
-        </div>
-        <div className="flex max-w-[360px] flex-col items-start gap-4">
-          <p className="text-[13.5px] leading-[1.6] text-pretty text-body">
-            Your city isn't on the map yet? Open a Pull Request on{' '}
-            <a
-              href="https://github.com/KyraLabs/bitdevsmap"
-              target="_blank"
-              rel="noopener"
-              className="border-b border-b-[rgba(227,111,70,0.4)] text-kyra-orange no-underline hover:border-b-kyra-orange"
-            >
-              the repository
-            </a>{' '}
-            with the city, its coordinates and the BitDevs link.
-          </p>
+        <p className="m-0 font-mono text-[12.5px] tracking-[0.04em] text-muted">
+          {t.footer.creditLead}{' '}
           <a
-            href="https://github.com/KyraLabs/bitdevsmap"
+            href="https://jaonoctus.dev"
             target="_blank"
             rel="noopener"
-            className="flex items-center gap-[7px] font-mono text-xs tracking-[0.04em] text-muted no-underline transition-colors duration-200 hover:text-strong"
+            className="text-br-yellow no-underline transition-colors duration-200 hover:text-br-yellow-300"
           >
-            <GitHubIcon />
-            GitHub ↗
-          </a>
+            jaonoctus
+          </a>{' '}
+          {t.footer.creditWith} <span className="text-br-blue-400">{t.footer.creditLove}</span>
+        </p>
+
+        <div className="flex max-w-[360px] flex-col items-start gap-4">
+          <p className="text-[13.5px] leading-[1.6] text-pretty text-body">
+            {t.footer.promptLead}{' '}
+            <a
+              href="https://github.com/jaonoctus/bitdevs.com.br"
+              target="_blank"
+              rel="noopener"
+              className="border-b border-b-[rgba(255,223,0,0.4)] text-br-yellow no-underline hover:border-b-br-yellow"
+            >
+              {t.footer.repository}
+            </a>{' '}
+            {t.footer.promptTail}
+          </p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a
+              href="https://github.com/jaonoctus/bitdevs.com.br"
+              target="_blank"
+              rel="noopener"
+              className="flex items-center gap-[7px] font-mono text-xs tracking-[0.04em] text-muted no-underline transition-colors duration-200 hover:text-strong"
+            >
+              <GitHubIcon />
+              {t.footer.github}
+            </a>
+            <LanguagePicker />
+          </div>
         </div>
       </div>
     </footer>

@@ -13,14 +13,14 @@ body:
     id: city
     attributes:
       label: City
-      placeholder: Buenos Aires
+      placeholder: Acre
     validations:
       required: true
   - type: input
     id: country
     attributes:
       label: Country
-      placeholder: Argentina
+      placeholder: Brazil
     validations:
       required: true
   - type: input
@@ -28,7 +28,7 @@ body:
     attributes:
       label: Group link
       description: Public website, Meetup, X/Twitter or GitHub of the local group.
-      placeholder: https://www.bitdevsba.org/
+      placeholder: https://bitdevsacre.org/
     validations:
       required: true
   - type: input
@@ -38,7 +38,7 @@ body:
       description: >-
         City center as decimal degrees "lat, lng". If you don't know them, leave
         this blank and we'll look them up.
-      placeholder: "-34.6037, -58.3816"
+      placeholder: "-9.0238, -70.8120"
     validations:
       required: false
   - type: checkboxes

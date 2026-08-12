@@ -3,10 +3,12 @@ import bitdevsData from './data/bitdevs.json'
 import topicsData from './data/topics.json'
 import eventsData from './data/events.json'
 import type { BitDev, TopicsIndex, EventsIndex } from './types'
+import { useI18n } from './i18n'
 import TopBar from './components/TopBar'
 import Hero from './components/Hero'
 import WorldMap from './components/WorldMap'
 import TopicsPage from './components/TopicsPage'
+import AboutPage from './components/AboutPage'
 import UpcomingEvents from './components/UpcomingEvents'
 import CityIndex from './components/CityIndex'
 import Footer from './components/Footer'
@@ -18,9 +20,9 @@ const seedEvents = eventsData as EventsIndex
 // Live topics/events are git-scraped daily onto the unprotected `data` branch
 // and fetched at runtime, so updates ship without touching main or rebuilding.
 const TOPICS_URL =
-  'https://raw.githubusercontent.com/KyraLabs/bitdevsmap/data/topics.json'
+  'https://raw.githubusercontent.com/jaonoctus/bitdevs.com.br/data/topics.json'
 const EVENTS_URL =
-  'https://raw.githubusercontent.com/KyraLabs/bitdevsmap/data/events.json'
+  'https://raw.githubusercontent.com/jaonoctus/bitdevs.com.br/data/events.json'
 
 // Guard the fetched payload before it replaces the known-good seed: a corrupted
 // or wrongly-shaped file on the data branch must not crash downstream views.
@@ -49,10 +51,13 @@ function isValidEvents(data: unknown): data is EventsIndex {
   })
 }
 
-type Route = 'home' | 'topics'
+type Route = 'home' | 'topics' | 'about'
 
 function currentRoute(): Route {
-  return window.location.hash.replace(/^#/, '').startsWith('/topics') ? 'topics' : 'home'
+  const path = window.location.hash.replace(/^#/, '')
+  if (path.startsWith('/topics')) return 'topics'
+  if (path.startsWith('/about')) return 'about'
+  return 'home'
 }
 
 function useHashRoute(): Route {
@@ -66,6 +71,7 @@ function useHashRoute(): Route {
 }
 
 export default function App() {
+  const { t } = useI18n()
   const route = useHashRoute()
   // Shared highlight: hovering a city card lights up its marker and vice versa.
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
@@ -102,9 +108,9 @@ export default function App() {
   }, [])
 
   // On route change, jump to the top or to the anchor named in the hash
-  // (e.g. #cities when arriving from the topics page).
+  // (e.g. #cities when arriving from a standalone page).
   useEffect(() => {
-    if (route === 'topics') {
+    if (route !== 'home') {
       window.scrollTo(0, 0)
       return
     }
@@ -120,6 +126,8 @@ export default function App() {
 
       {route === 'topics' ? (
         <TopicsPage cities={cities} topics={topics} />
+      ) : route === 'about' ? (
+        <AboutPage />
       ) : (
         <>
           <Hero count={cities.length} />
@@ -133,10 +141,10 @@ export default function App() {
               />
               <div className="mt-[14px] flex flex-wrap justify-between gap-x-5 gap-y-[10px] font-mono text-[11.5px] tracking-[0.04em] text-faint">
                 <span>
-                  <span className="text-muted">Interaction</span> &nbsp;·&nbsp; hover
-                  to see the city, click to open the site
+                  <span className="text-muted">{t.map.interaction}</span> &nbsp;·&nbsp;{' '}
+                  {t.map.interactionHint}
                 </span>
-                <span className="text-muted">data · bitdevs-map · open source</span>
+                <span className="text-muted">{t.map.credit}</span>
               </div>
             </div>
           </section>

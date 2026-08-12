@@ -1,12 +1,13 @@
-# BitDevs Map
+# BitDevs Brasil
 
-An interactive world map of cities with an active [BitDevs](https://bitdevs.org/about)
+An interactive map of Brazilian cities with an active [BitDevs](https://bitdevs.org/about)
 group — Socratic seminars where developers gather to discuss changes to the Bitcoin
 protocol and the technologies around it.
 
-The map renders a dotted landmass on a canvas, drops a marker on every city, and
-keeps a searchable city index in sync with it. All city data comes from a single
-JSON file, so adding a community is a one-line change.
+The map renders a dotted Brazil on a canvas over a dimmed backdrop of its
+neighbours, drops a marker on every city, and keeps a searchable city index in
+sync with it. All city data comes from a single JSON file, so adding a community
+is a one-line change.
 
 ## Tech stack
 
@@ -42,7 +43,7 @@ with — both end up in the same place.
 ### Option A — Open an issue (no coding required)
 
 If you don't want to touch the code, just
-[open a "New city" issue](https://github.com/KyraLabs/bitdevsmap/issues/new?template=add-city.yml)
+[open a "New city" issue](https://github.com/jaonoctus/bitdevs.com.br/issues/new?template=add-city.yml)
 with your city, country and the group's link. A maintainer will add it for you. If
 you don't know the exact coordinates, leave them blank — we'll fill them in.
 
@@ -53,11 +54,12 @@ the array and open a PR:
 
 ```json
 {
-  "city": "Buenos Aires",
-  "country": "Argentina",
-  "lat": -34.6037,
-  "lng": -58.3816,
-  "url": "https://www.bitdevsba.org/"
+  "id": "acre",
+  "city": "Acre",
+  "country": "Brazil",
+  "lat": -9.0238,
+  "lng": -70.812,
+  "url": "https://bitdevsacre.org/"
 }
 ```
 
@@ -68,6 +70,7 @@ changes are needed.
 
 | Field     | Type   | Description                                              |
 | --------- | ------ | -------------------------------------------------------- |
+| `id`      | string | Kebab-case slug of the city; joins the entry to its topics and events. |
 | `city`    | string | City name shown on the marker and in the index.          |
 | `country` | string | Country, shown as the marker subtitle.                   |
 | `lat`     | number | Decimal-degree latitude of the city center.              |
@@ -77,6 +80,8 @@ changes are needed.
 #### Guidelines
 
 - Keep the list **alphabetical by city** so diffs stay clean.
+- Make `id` the kebab-case, unaccented form of the city (`São Paulo` → `sao-paulo`)
+  and keep it unique — the topics and events aggregators key off it.
 - Use the **city center** coordinates in decimal degrees. You can grab them from
   Google Maps (right-click a location to copy `lat, lng`) or
   [latlong.net](https://www.latlong.net/).
