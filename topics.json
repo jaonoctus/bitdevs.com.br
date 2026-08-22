@@ -1,0 +1,511 @@
+{
+  "belo-horizonte": {
+    "id": "belo-horizonte",
+    "source": "rss",
+    "fetchedAt": "2026-08-22T06:49:52.774Z",
+    "topics": [
+      {
+        "title": "Escola de engenharia da UFMG",
+        "url": "https://www.eng.ufmg.br/portal/",
+        "date": "2026-07-29T00:00:00.000Z"
+      },
+      {
+        "title": "The Four Horsemen (of the Blockchain): A unified spec for Bitcoin coinjoin protocols",
+        "url": "https://delvingbitcoin.org/t/the-four-horsemen/2728",
+        "date": "2026-07-29T00:00:00.000Z"
+      },
+      {
+        "title": "Formal Verification of the Bitcoin Protocol",
+        "url": "https://bitcoinops.org/en/newsletters/2026/07/17/#formal-verification-of-the-bitcoin-protocol",
+        "date": "2026-07-29T00:00:00.000Z"
+      },
+      {
+        "title": "Permitir que prunados voltem a contribuir com o download inicial da blockchain de novos nós, sem precisar guardar a cadeia inteira.",
+        "url": "https://delvingbitcoin.org/t/fountain-codes-a-way-to-reduce-blockchain-storage-costs/2624",
+        "date": "2026-07-29T00:00:00.000Z"
+      },
+      {
+        "title": "BIP322",
+        "url": "https://github.com/bitcoin/bips/blob/master/bip-0322.mediawiki",
+        "date": "2026-07-29T00:00:00.000Z"
+      },
+      {
+        "title": "Async Payments: Getting Paid While Your Node Is Offline",
+        "url": "https://lightningdevkit.org/blog/async-payments-receiving-while-offline",
+        "date": "2026-07-29T00:00:00.000Z"
+      },
+      {
+        "title": "DoS por gossip com timestamp zero no LND",
+        "url": "https://delvingbitcoin.org/t/lnd-zero-timestamp-gossip-dos-disclosure/2621",
+        "date": "2026-07-29T00:00:00.000Z"
+      },
+      {
+        "title": "Announcing Wavelength, the easiest way to integrate bitcoin for agents and humans",
+        "url": "https://lightning.engineering/posts/2026-07-21-wavelength-launch/",
+        "date": "2026-07-29T00:00:00.000Z"
+      },
+      {
+        "title": "O primeiro bloco com StratumV2",
+        "url": "https://xcancel.com/TheBlueMatt/status/2070133045773103376",
+        "date": "2026-07-29T00:00:00.000Z"
+      },
+      {
+        "title": "F2Pool mines two blocks at height 956337",
+        "url": "https://bnoc.xyz/t/f2pool-mines-two-blocks-at-height-956337/147",
+        "date": "2026-07-29T00:00:00.000Z"
+      },
+      {
+        "title": "Discovering cryptographic weaknesses with Claude Mythos Preview",
+        "url": "https://www.anthropic.com/research/discovering-cryptographic-weaknesses",
+        "date": "2026-07-29T00:00:00.000Z"
+      }
+    ]
+  },
+  "brasilia": {
+    "id": "brasilia",
+    "source": "rss",
+    "fetchedAt": "2026-08-22T06:49:52.774Z",
+    "topics": [
+      {
+        "title": "Livro - 101 Perguntas sobre Bitcoin",
+        "url": "https://bitcoin101.site/",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Floresta: roadmap Q2/Q3 com foco em confiabilidade e diagnóstico",
+        "url": "https://www.getfloresta.org/blog/roadmap-Q2-Q3",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Collaborative Launch do asmap-data",
+        "url": "https://github.com/bitcoin-core/asmap-data/issues/63",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Draft BIP: Stale Tip Relay",
+        "url": "https://github.com/pseudoramdom/bips/blob/staletip-bip-draft/bip-staletip.md",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "BIP-110: status Closed após tentativa de ativação sem suporte",
+        "url": "https://github.com/bitcoin/bips/pull/2245",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "CISA para gastos Taproot por key path: agregação half/full (draft BIP-460)",
+        "url": "https://github.com/fjahr/bips/blob/cf0d4f2142cd0504b16e86739167b1f7ab9a3a06/bip-XXXX.mediawiki",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Segwit commitment para witness data pós-quântica",
+        "url": "https://delvingbitcoin.org/t/segwit-commitment-to-post-quantum-witness-data/2702",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "PQC output types: P2MR, P2TRv2, P2TRH e alternativas",
+        "url": "https://delvingbitcoin.org/t/pqc-output-type-discussion/2749",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Input-triggered transaction expiry para HTLCs e timelocks",
+        "url": "https://delvingbitcoin.org/t/input-triggered-transaction-expiry/2667",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Layered quantum recovery de endereços com hash",
+        "url": "https://groups.google.com/g/bitcoindev/c/gtxpSxgG7E4",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Segregated Data: região prunable de bloco para transporte de dados",
+        "url": "https://delvingbitcoin.org/t/bip-draft-segregated-data-a-prunable-script-isolated-block-region-for-data-carriage/2641",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Libsecp256k1 0.8.0 e PRs recentes",
+        "url": "https://github.com/bitcoin-core/secp256k1/pulls",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Bitcoin Core: builds estáticos para teste a partir da infraestrutura Guix",
+        "url": "https://bitcoinops.org/en/newsletters/2026/08/14/#static-bitcoin-core-binaries-available-for-testing",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Mitigação de channel jamming com Conditional Message Transfer Contract",
+        "url": "https://bitcoinops.org/en/newsletters/2026/08/14/#conditional-message-transfer-contract-to-solve-jamming",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "NWC-321: suporte a pagamentos BIP-321 no SDK JavaScript da Alby",
+        "url": "https://github.com/getAlby/js-sdk/pull/576",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "CLINK: plugin de pagamentos Lightning com códigos estáticos nativos de Nostr",
+        "url": "https://github.com/WoompaLoompa/vendure-clink",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Vulnerabilidade crítica no BTCPay Server: exposição de macaroons do LND",
+        "url": "https://blog.btcpayserver.org/security-advisory-btcpay-server-2-4-2",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Divulgação de vulnerabilidades DoS no Core Lightning (Optech #416)",
+        "url": "https://bitcoinops.org/en/newsletters/2026/07/31/",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Floresta: mempool, transaction relay e SwiftSync com Utreexo",
+        "url": "https://github.com/getfloresta/Floresta/blob/master/doc/roadmap-2026.md",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "NostrBridge: webhooks para DMs privadas com NIP-17 e NIP-59",
+        "url": "https://www.reddit.com/r/nostr/comments/1vlgt06/big_update_for_nostrbridge/",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "FedOS: toolkit local-first de mensagens e confiança sobre Nostr",
+        "url": "https://www.reddit.com/r/nostr/comments/1vkob6q/i_opensourced_fedos_a_localfirst_nostr_messaging/",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Sustentabilidade dos relays: quem armazena e paga pela retenção dos eventos?",
+        "url": "https://www.reddit.com/r/nostr/comments/1vil3lk/how_is_nostr_sustainable/",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "ProofTube: mídia P2P com Nostr, WebRTC e micropagamentos L402",
+        "url": "https://www.reddit.com/r/nostr/comments/1vc4i9x/introducing_prooftube_open_source_peer_to_peer_media/",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Coldcard hack: falha de entropia que comprometeu seeds",
+        "url": "https://www.eddieoz.com/coldcard-hack-o-bug-que-quebrou-o-cofre",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Cobertura sobre fundos drenados e migração de seeds",
+        "url": "https://decrypt.co/374766/38m-in-bitcoin-drained-by-coldcard-key-flaw-its-maker-thinks-ai-found",
+        "date": "2026-08-20T00:00:00.000Z"
+      },
+      {
+        "title": "Discussões sobre recuperação pós-quântica e assimetrias de conhecimento",
+        "url": "https://delvingbitcoin.org/t/post-quantum-recovery-of-hashed-addresses-with-no-confiscatory-risk/2714",
+        "date": "2026-08-20T00:00:00.000Z"
+      }
+    ]
+  },
+  "curitiba": {
+    "id": "curitiba",
+    "source": "rss",
+    "fetchedAt": "2026-08-22T06:49:52.774Z",
+    "topics": [
+      {
+        "title": "issues do GitHub do grupo",
+        "url": "https://github.com/curitibabitdevs/curitibabitdevs.org/issues",
+        "date": "2026-08-21T00:00:00.000Z"
+      },
+      {
+        "title": "Bitcoin post office page",
+        "url": "https://bitcoin-mempool.netlify.app/",
+        "date": "2026-08-21T00:00:00.000Z"
+      },
+      {
+        "title": "BIP-110 live status",
+        "url": "https://bip110.orange.surf/live.html",
+        "date": "2026-08-21T00:00:00.000Z"
+      },
+      {
+        "title": "BIP-110 Bitcoin branch stalls after two blocks as gap widens",
+        "url": "https://cointelegraph.com/news/bitcoin-bip-110-branch-stalls-miner-support",
+        "date": "2026-08-21T00:00:00.000Z"
+      },
+      {
+        "title": "L402",
+        "url": "https://l402.space/",
+        "date": "2026-08-21T00:00:00.000Z"
+      },
+      {
+        "title": "Gerando uma Frase Semente BIP39 com Dados de 20 Faces",
+        "url": "https://drive.google.com/file/d/1Hk9RGCxDyflTx2kV48qMg8VyY_zJHFk7/view",
+        "date": "2026-08-21T00:00:00.000Z"
+      },
+      {
+        "title": "Blockstream Jade guide to create a recovery phrase using dice",
+        "url": "https://help.blockstream.com/blockstream-jade/add-more-security-functionality/create-a-recovery-phrase-using-dice",
+        "date": "2026-08-21T00:00:00.000Z"
+      },
+      {
+        "title": "Equipe de red team apoiada por IA identifica 85 vulnerabilidades críticas no ecossistema do Bitcoin",
+        "url": "https://www.cointribune.com/pt-br/equipe-de-red-team-apoiada-por-ia-identifica-85-vulnerabilidades-criticas-no-ecossistema-do-bitcoin/",
+        "date": "2026-08-21T00:00:00.000Z"
+      },
+      {
+        "title": "OpenSats Fast-Tracks Funding For Bitcoin Bug Hunters",
+        "url": "https://opensats.org/blog/code-red-supporting-first-responders",
+        "date": "2026-08-21T00:00:00.000Z"
+      },
+      {
+        "title": "Bitkey Patches Bug, Says No Funds Were Ever at Risk",
+        "url": "https://bitkey.world/blog/relationship-enrollment-bug-in-bitkey",
+        "date": "2026-08-21T00:00:00.000Z"
+      },
+      {
+        "title": "payjoin-1.0.0",
+        "url": "https://github.com/payjoin/rust-payjoin/releases/tag/payjoin-1.0.0",
+        "date": "2026-08-21T00:00:00.000Z"
+      },
+      {
+        "title": "GitHub organization owners can see contributor’s country and even IP",
+        "url": "https://stacker.news/items/1540052",
+        "date": "2026-08-21T00:00:00.000Z"
+      }
+    ]
+  },
+  "florianopolis": {
+    "id": "florianopolis",
+    "source": "rss",
+    "fetchedAt": "2026-08-22T06:49:52.774Z",
+    "topics": [
+      {
+        "title": "BitDevs ao redor do mundo",
+        "url": "https://www.bitdevsmap.org/",
+        "date": "2026-08-13T00:00:00.000Z"
+      },
+      {
+        "title": "O primeiro bloco minerado com StratumV2",
+        "url": "https://xcancel.com/TheBlueMatt/status/2070133045773103376",
+        "date": "2026-08-13T00:00:00.000Z"
+      },
+      {
+        "title": "Go secp256k1 library announced",
+        "url": "https://delvingbitcoin.org/t/a-faster-go-golang-secp256k1-library/2658",
+        "date": "2026-08-13T00:00:00.000Z"
+      },
+      {
+        "title": "LDK migrating from github",
+        "url": "https://git.rust-bitcoin.org/lightningdevkit?utm_source=substack&amp;utm_medium=email",
+        "date": "2026-08-13T00:00:00.000Z"
+      },
+      {
+        "title": "O uso de OP_RETURN antes e depois do Bitcoin Core v30",
+        "url": "https://xcancel.com/L0RINC/status/2065914808700936694",
+        "date": "2026-08-13T00:00:00.000Z"
+      },
+      {
+        "title": "Dá para provar matematicamente partes do consenso do Bitcoin?",
+        "url": "https://bitcoinops.org/en/newsletters/2026/07/17/#formal-verification-of-the-bitcoin-protocol",
+        "date": "2026-08-13T00:00:00.000Z"
+      },
+      {
+        "title": "Disclosure of two DoS vulnerabilities in Core Lightning",
+        "url": "https://delvingbitcoin.org/t/vulnerability-disclosure-twin-memory-exhaustion-dos-vulnerabilities-in-core-lightning/2731",
+        "date": "2026-08-13T00:00:00.000Z"
+      },
+      {
+        "title": "LDK async payments: receiving while offline",
+        "url": "https://lightningdevkit.org/blog/async-payments-receiving-while-offline",
+        "date": "2026-08-13T00:00:00.000Z"
+      },
+      {
+        "title": "Non-custodial accounts in Blink wallet",
+        "url": "https://pt-br.blink.sv/blog/non-custodial-accounts-in-blink-wallet",
+        "date": "2026-08-13T00:00:00.000Z"
+      },
+      {
+        "title": "0-Conf for Elements and Liquid: A Technical Explainer",
+        "url": "https://blog.liquid.net/0-conf-for-elements-and-liquid-a-technical-explainer/",
+        "date": "2026-08-13T00:00:00.000Z"
+      }
+    ]
+  },
+  "porto-alegre": {
+    "id": "porto-alegre",
+    "source": "rss",
+    "fetchedAt": "2026-08-22T06:49:52.774Z",
+    "topics": [
+      {
+        "title": "Peter Todd revive proposta de emissão de cauda no Bitcoin",
+        "url": "https://livecoins.com.br/emissao-de-cauda-pode-ser-a-proxima-grande-polemica-do-bitcoin-entenda-a-proposta/",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Payjoin chega à versão estável 1.0.0",
+        "url": "https://github.com/payjoin/rust-payjoin/releases",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Vinteum abre novo ciclo de fellowship",
+        "url": "https://vinteum.exe.xyz/blog/introducing-vinteums-new-fellowship-cycle",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "“Tripwire”: desabilitar opcodes de curva elíptica contra ameaça quântica",
+        "url": "https://groups.google.com/g/bitcoindev/c/aWYtPLVPZ3U",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Bitcoin Core mescla novo rate-limiting global de transações (PR #34628)",
+        "url": "https://github.com/bitcoin/bitcoin/pull/34628",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "BIP draft: “Segregated Data” — tirar dado arbitrário do OP_RETURN",
+        "url": "https://delvingbitcoin.org/t/bip-draft-segregated-data-a-prunable-script-isolated-block-region-for-data-carriage/2641",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "libsecp256k1 v0.8.0",
+        "url": "https://github.com/bitcoin-core/secp256k1/releases/tag/v0.8.0",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Conditional Message Transfer Contract (CMTC) contra channel jamming",
+        "url": "https://delvingbitcoin.org/t/conditional-message-transfer-contract-to-solve-jamming/2772",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "BOLT12 payer proofs vira parte da especificação",
+        "url": "https://github.com/lightning/bolts/pull/1346",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Vulnerabilidade de entropia insuficiente em wallets COLDCARD já rendeu mais de 1.500 BTC roubados",
+        "url": "https://blog.coinkite.com/coldcard-mk3-seed-generation-warning/",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Duas vulnerabilidades de exaustão de memória no Core Lightning (gossipd)",
+        "url": "https://delvingbitcoin.org/t/vulnerability-disclosure-twin-memory-exhaustion-dos-vulnerabilidades-in-core-lightning/2731",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Ataque de spam de endereços no P2P do Bitcoin",
+        "url": "https://bnoc.xyz/t/address-relay-under-stress/163",
+        "date": "2026-09-16T00:00:00.000Z"
+      }
+    ]
+  },
+  "sao-paulo": {
+    "id": "sao-paulo",
+    "source": "rss",
+    "fetchedAt": "2026-08-22T06:49:52.774Z",
+    "topics": [
+      {
+        "title": "Signal do BitDevs SP",
+        "url": "https://signal.group/#CjQKIKRG6Gw3huCUVV57mu8fj_uOaQl4CrBBWdDlhKvMbag_EhAX7s2tuBB4YY8c71UWepPH",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "BitDevs ao redor do mundo",
+        "url": "https://www.bitdevsmap.org/",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "O primeiro bloco minerado com StratumV2",
+        "url": "https://xcancel.com/TheBlueMatt/status/2070133045773103376",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "F2Pool mines two blocks at height 956337",
+        "url": "https://bnoc.xyz/t/f2pool-mines-two-blocks-at-height-956337/147",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "O uso de OP_RETURN antes e depois do Bitcoin Core v30",
+        "url": "https://xcancel.com/L0RINC/status/2065914808700936694",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "BIP95: Testnet5",
+        "url": "https://github.com/bitcoin/bips/pull/2196",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "Dá para provar matematicamente partes do consenso do Bitcoin?",
+        "url": "https://bitcoinops.org/en/newsletters/2026/07/17/#formal-verification-of-the-bitcoin-protocol",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "libsecp: remove Jonas Nick from trusted keys",
+        "url": "https://github.com/bitcoin-core/secp256k1/pull/1884",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "DuraShare (ex Schiavinato Sharing): backup de mnemonic BIP39 com redundância manual e validação individual de share",
+        "url": "https://github.com/GRIFORTIS/schiavinato-sharing",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "Divulgação de vulnerabilidade de DoS no gossip do LND causada por timestamp zero",
+        "url": "https://delvingbitcoin.org/t/lnd-zero-timestamp-gossip-dos-disclosure/2621",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "Babilonia: probabilistic coinjoin and covert betting",
+        "url": "https://delvingbitcoin.org/t/babilonia-probabilistic-coinjoin-and-covert-betting/2704",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "Add “silentpayments” module implementing BIP352 merged no libsecp256k1",
+        "url": "https://github.com/bitcoin-core/secp256k1/pull/1765",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "[CLN] closingd: implement option_simple_close (BOLT2)",
+        "url": "https://github.com/ElementsProject/lightning/pull/9104",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "HTLCs que expiram sem depender da mempool local",
+        "url": "https://delvingbitcoin.org/t/expiring-htlcs-without-free-relay/2663",
+        "date": "2026-07-23T00:00:00.000Z"
+      },
+      {
+        "title": "LND adiciona RPC WalletKit.SubmitPackage e o comando lncli wallet submitpackage para envio de pacotes 1p1c",
+        "url": "https://github.com/lightningnetwork/lnd/issues/10900",
+        "date": "2026-07-23T00:00:00.000Z"
+      }
+    ]
+  },
+  "uberlandia": {
+    "id": "uberlandia",
+    "source": "rss",
+    "fetchedAt": "2026-08-22T06:49:52.774Z",
+    "topics": [
+      {
+        "title": "Builds determinísticas entre nix e guix",
+        "url": "https://b10c.me/projects/027-bitcoind-gunix-match/",
+        "date": "2026-06-23T00:00:00.000Z"
+      },
+      {
+        "title": "BIP-323 e o novo teto teórico de 72 PH/s para “header-only mining”",
+        "url": "https://github.com/bitcoin/bitcoin/pull/34779",
+        "date": "2026-06-23T00:00:00.000Z"
+      },
+      {
+        "title": "Testnet5",
+        "url": "https://groups.google.com/g/bitcoindev/c/kGUMTxOvdJA/m/Eyx5FxQeAAAJ?pli=1",
+        "date": "2026-06-23T00:00:00.000Z"
+      },
+      {
+        "title": "Cursos avançados sobre manutenção de equipamentos de mineração",
+        "url": "https://course.zeusbtc.com/",
+        "date": "2026-06-23T00:00:00.000Z"
+      },
+      {
+        "title": "GridPool - pool soberana onde cada minerador constrói seu próprio template de bloco",
+        "url": "https://gridpool.net/",
+        "date": "2026-06-23T00:00:00.000Z"
+      },
+      {
+        "title": "De BM1366 a BM1373: como as gerações de chips ASIC da Bitmain abriram espaço para a mineração caseira",
+        "url": "https://ixtech.xyz/blogs/mining-tips/from-bm1366-to-bm1373-how-bitmains-asic-chip-generations-unlocked-home-bitcoin-mining",
+        "date": "2026-06-23T00:00:00.000Z"
+      }
+    ]
+  }
+}
