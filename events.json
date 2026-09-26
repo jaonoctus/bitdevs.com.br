@@ -1,0 +1,23 @@
+{
+  "sao-paulo": {
+    "id": "sao-paulo",
+    "fetchedAt": "2026-09-26T11:09:21.541Z",
+    "events": [
+      {
+        "title": "Seminário Socrático 049",
+        "url": "https://saopaulobitdevs.org/2026-10-22-socratic-seminar-049",
+        "date": "2026-10-22"
+      },
+      {
+        "title": "Seminário Socrático 050",
+        "url": "https://saopaulobitdevs.org/2026-11-26-socratic-seminar-050",
+        "date": "2026-11-26"
+      },
+      {
+        "title": "Seminário Socrático 051",
+        "url": "https://saopaulobitdevs.org/2026-12-17-socratic-seminar-051",
+        "date": "2026-12-17"
+      }
+    ]
+  }
+}

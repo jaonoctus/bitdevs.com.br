@@ -1,0 +1,521 @@
+{
+  "belo-horizonte": {
+    "id": "belo-horizonte",
+    "source": "rss",
+    "fetchedAt": "2026-09-26T11:09:21.125Z",
+    "topics": [
+      {
+        "title": "Escola de engenharia da UFMG",
+        "url": "https://www.eng.ufmg.br/portal/",
+        "date": "2026-08-26T00:00:00.000Z"
+      },
+      {
+        "title": "Commit Que introduziu o bug",
+        "url": "https://github.com/Coldcard/firmware/commit/b18723dd",
+        "date": "2026-08-26T00:00:00.000Z"
+      },
+      {
+        "title": "ColdCard hack: o bug que quebrou o cofre",
+        "url": "https://www.eddieoz.com/coldcard-hack-o-bug-que-quebrou-o-cofre/",
+        "date": "2026-08-26T00:00:00.000Z"
+      },
+      {
+        "title": "Predictable RNG fallback and 32-bit reseed in ColdCard firmware",
+        "url": "https://engineering.block.xyz/blog/predictable-rng-fallback-and-32-bit-reseed-in-coldcard-firmware",
+        "date": "2026-08-26T00:00:00.000Z"
+      },
+      {
+        "title": "Libshrincs: A C implementation with a machine-checked security proof",
+        "url": "https://delvingbitcoin.org/t/libshrincs-a-c-implementation-with-a-machine-checked-security-proof/2795",
+        "date": "2026-08-26T00:00:00.000Z"
+      },
+      {
+        "title": "HNDL e Silent Payments",
+        "url": "https://conduition.io/cryptography/hndl-silent-payments/",
+        "date": "2026-08-26T00:00:00.000Z"
+      },
+      {
+        "title": "Puzzle #135 resolvido",
+        "url": "https://bitcointalk.org/index.php?topic=5517607.msg66986617#msg66986617",
+        "date": "2026-08-26T00:00:00.000Z"
+      },
+      {
+        "title": "Pool pra resolver o puzzle #71",
+        "url": "https://krackpot.io/",
+        "date": "2026-08-26T00:00:00.000Z"
+      },
+      {
+        "title": "Chain split, BIP 110",
+        "url": "https://fork.observer/?network=mainnet",
+        "date": "2026-08-26T00:00:00.000Z"
+      },
+      {
+        "title": "O que são macaroons",
+        "url": "https://docs.lightning.engineering/lightning-network-tools/lnd/macaroons",
+        "date": "2026-08-26T00:00:00.000Z"
+      },
+      {
+        "title": "Man vs. Machine. Or, why Man is not a Particularly Good Source of Entropy",
+        "url": "https://www.loper-os.org/bad-at-entropy/manmach.html",
+        "date": "2026-08-26T00:00:00.000Z"
+      },
+      {
+        "title": "The Bitcoin Post Office",
+        "url": "https://bitcoin-mempool.netlify.app/",
+        "date": "2026-08-26T00:00:00.000Z"
+      },
+      {
+        "title": "VULNERABILITY SPOILER ALERT - “Exposing patches before CVEs since 2025”",
+        "url": "https://vulnerabilityspoileralert.com/",
+        "date": "2026-08-26T00:00:00.000Z"
+      }
+    ]
+  },
+  "brasilia": {
+    "id": "brasilia",
+    "source": "rss",
+    "fetchedAt": "2026-09-26T11:09:21.125Z",
+    "topics": [
+      {
+        "title": "Livro - 101 Perguntas sobre Bitcoin",
+        "url": "https://bitcoin101.site/",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Vinteum Year Four Report",
+        "url": "https://www.vinteum.org/assets/files/Vinteum-Year-Four-Report-2026.pdf",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "MostroEuropa: coordenador P2P de Bitcoin usando Lightning e Nostr",
+        "url": "https://mostroeuropa.shadowbip.com/",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Trezor/Brevo: invasão do provedor de e-mail e campanha de phishing pedindo a seed",
+        "url": "https://trezor.io/blog/news/security-incident-at-brevo-our-third-party-email-provider",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "BIP-54 Consensus Cleanup: enforcement pelos mineradores da regra de Murch-Zawy (PR #35949)",
+        "url": "https://github.com/bitcoin/bitcoin/pull/35949",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Silent Payments: benchmarks de indexação em light clients contra compact block filters",
+        "url": "https://bitcoinops.org/en/newsletters/2026/09/11/",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Silent Payments para pagamentos de mineradores diretamente na coinbase",
+        "url": "https://delvingbitcoin.org/t/silent-payments-coinbase/2833",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Reorganizações de um bloco observadas na mainnet, incluindo a altura ~966500",
+        "url": "https://phemex.com/news/article/bitcoin-network-records-oneblock-reorg-at-height-966500-96307",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Aumento do volume de dados em OP_RETURN e Runes após a flexibilização de política do Core v30",
+        "url": "https://cryptobriefing.com/bitcoin-op-return-usage-surges-700k/",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "OpenArk: scaling de Bitcoin com provedores de liquidez sem confiança",
+        "url": "https://openark.tech/",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Comparativo de carteiras e camadas 2 de Bitcoin",
+        "url": "https://www.spark.money/tools/bitcoin-layer-2-wallet-comparison",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "BIP-448, Ark OOR, covenants.diy e o atlas de casos de uso",
+        "url": "https://bitcoinops.org/en/newsletters/2026/09/04/#bip448-and-csfs-ctv-demos-and-applications",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Core Lightning v26.06.7: release de segurança com múltiplas vulnerabilidades corrigidas",
+        "url": "https://github.com/ElementsProject/lightning/releases/tag/v26.06.7",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "LDK v0.2.6: correções para splice e carregamento do estado de canais",
+        "url": "https://cryptoslate.com/critical-bitcoin-lightning-bugs-exposed-nodes-to-fund-theft-and-restart-failure/",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "LDK v0.3-rc1: RBF para splices, adicionar/remover fundos no mesmo splice e anchors padrão",
+        "url": "https://bitcoinops.org/en/newsletters/2026/09/11/",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Core Lightning: interface de signer para rotação da funding key local em splices",
+        "url": "https://github.com/ElementsProject/lightning/issues/9500",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Tipos de outputs pós-quânticos: P2TRv2, P2MR e incentivos da CISA",
+        "url": "https://delvingbitcoin.org/t/pqc-output-type-discussion/2749",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "SHRINCS: proposta de BIP para assinaturas hash-based semi-stateful",
+        "url": "https://github.com/SHRINCS/shrincs-bip/blob/main/SHRINCS.md",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Babilonia: coinjoin probabilístico e protocolo de apostas encobertas",
+        "url": "https://bitcoinops.org/en/newsletters/2026/09/11/#a-protocol-for-probabilistic-coinjoin-and-covert-betting",
+        "date": "2026-09-17T00:00:00.000Z"
+      }
+    ]
+  },
+  "curitiba": {
+    "id": "curitiba",
+    "source": "rss",
+    "fetchedAt": "2026-09-26T11:09:21.125Z",
+    "topics": [
+      {
+        "title": "issue de tópicos deste encontro",
+        "url": "https://github.com/curitibabitdevs/curitibabitdevs.org/issues/65",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Curitiba BitDevs no site do Miguel Medeiros",
+        "url": "https://miguelmedeiros.dev/",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Release de segurança 26.06.7 e publicação adiada do código-fonte",
+        "url": "https://blog.blockstream.com/core-lightning-26-06-7/",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Código e notas da release v26.06.7",
+        "url": "https://github.com/ElementsProject/lightning/releases/tag/v26.06.7",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Divulgação do DoS por flood de pings, corrigido na v25.09",
+        "url": "https://delvingbitcoin.org/t/disclosure-crashing-cln-with-a-flood-of-pings/2846",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Devolução parcial dos fundos e saldo ainda pendente",
+        "url": "https://cointelegraph.com/news/liquid-white-hats-return-270m-bitcoin-network-restart",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Relatório independente sobre o incidente: kimi_report_liquid_hack",
+        "url": "https://gist.github.com/1440000bytes/211ac92dd4433bb1a2e674bf0ff7db2e",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Divulgação da falha no acompanhamento de canais fechados",
+        "url": "https://delvingbitcoin.org/t/disclosure-lnd-doesnt-wait-for-enough-confirmations-when-closing-channels/2800",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Plugin de envio de Silent Payments para Electrum",
+        "url": "https://delvingbitcoin.org/t/silent-payments-sender-bip352-plugin-for-electrum/2743",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Risco de perda futura de privacidade: harvest-now-decrypt-later",
+        "url": "https://conduition.io/cryptography/hndl-silent-payments/",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Bitcoin Core: redução do espaço em disco do txindex",
+        "url": "https://github.com/bitcoin/bitcoin/pull/35531",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "BOLT 12: payer proofs incorporados à especificação",
+        "url": "https://github.com/lightning/bolts/pull/1346",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "HWI: plano de manutenção mínima e BHWI como possível sucessor",
+        "url": "https://github.com/bitcoin-core/HWI/issues/850",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Prem AI anuncia CyberScan para auditorias de segurança",
+        "url": "https://decrypt.co/376056/prem-ai-launches-cyberscan-for-continuous-ai-security-audits-of-bitcoin-infrastructure",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Iceberg: novo paper sobre custódia threshold na Lightning com assinaturas aninhadas",
+        "url": "https://eprint.iacr.org/2026/1757",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "StarkWare demonstra transação resistente a ataques quânticos na mainnet",
+        "url": "https://cointelegraph.com/news/starkware-quantum-resistant-bitcoin-transaction-mainnet",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Chainalysis estima volume de atividade tributável",
+        "url": "https://atlas21.com/chainalysis-estimates-457-billion-in-taxable-activity/",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Comunicado da OCEAN e de Luke Dashjr sobre sua saída",
+        "url": "https://www.prnewswire.com/news-releases/joint-statement-of-ocean-and-luke-dashjr-302864347.html",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Desdobramento do caso Coldcard: movimentação dos fundos pela THORChain",
+        "url": "https://atlas21.com/galaxy-says-coldcard-hacker-swapped-stolen-bitcoin-on-thorchain/",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Amboss e Aureo conectam a Lightning ao sistema bancário mexicano",
+        "url": "https://www.globenewswire.com/news-release/2026/09/09/3358873/0/en/amboss-and-aureo-connect-the-lightning-network-to-mexico-s-banking-system.html",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Proposta Segregated Data: região de bloco podável para dados arbitrários",
+        "url": "https://delvingbitcoin.org/t/bip-draft-segregated-data-a-prunable-script-isolated-block-region-for-data-carriage/2641",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Proposta de Conditional Message Transfer Contract (CMTC) contra channel jamming",
+        "url": "https://delvingbitcoin.org/t/conditional-message-transfer-contract-to-solve-jamming/2772",
+        "date": "2026-09-18T00:00:00.000Z"
+      },
+      {
+        "title": "Peter Todd retoma a proposta de emissão de cauda",
+        "url": "https://livecoins.com.br/emissao-de-cauda-pode-ser-a-proxima-grande-polemica-do-bitcoin-entenda-a-proposta/",
+        "date": "2026-09-18T00:00:00.000Z"
+      }
+    ]
+  },
+  "florianopolis": {
+    "id": "florianopolis",
+    "source": "rss",
+    "fetchedAt": "2026-09-26T11:09:21.125Z",
+    "topics": [
+      {
+        "title": "Payjoin Dev Kit (rust-payjoin) 1.0.0 released",
+        "url": "https://github.com/payjoin/rust-payjoin/releases/tag/payjoin-1.0.0",
+        "date": "2026-09-09T00:00:00.000Z"
+      },
+      {
+        "title": "HWI repository to enter maintenance mode",
+        "url": "https://github.com/bitcoin-core/HWI/issues/850",
+        "date": "2026-09-09T00:00:00.000Z"
+      },
+      {
+        "title": "OS Fingerprinting of Bitcoin Nodes",
+        "url": "https://viniciuscestarii.github.io/bitcoin-node-os-fingerprint/",
+        "date": "2026-09-09T00:00:00.000Z"
+      },
+      {
+        "title": "Draft BIP for rawtr() output script descriptor",
+        "url": "https://groups.google.com/g/bitcoindev/c/CCZN_qQ5C1s?pli=1",
+        "date": "2026-09-09T00:00:00.000Z"
+      },
+      {
+        "title": "Silent Payments sender plugin for Electrum",
+        "url": "https://delvingbitcoin.org/t/silent-payments-sender-bip352-plugin-for-electrum/2743",
+        "date": "2026-09-09T00:00:00.000Z"
+      },
+      {
+        "title": "txindex: hash keys and pack positions to reduce disk usage",
+        "url": "https://github.com/bitcoin/bitcoin/pull/35531",
+        "date": "2026-09-09T00:00:00.000Z"
+      },
+      {
+        "title": "Conditional message transfer contract to solve jamming",
+        "url": "https://delvingbitcoin.org/t/conditional-message-transfer-contract-to-solve-jamming/2772/2",
+        "date": "2026-09-09T00:00:00.000Z"
+      },
+      {
+        "title": "Reorg vulnerability in LND channel closes",
+        "url": "https://delvingbitcoin.org/t/disclosure-lnd-doesnt-wait-for-enough-confirmations-when-closing-channels/2800",
+        "date": "2026-09-09T00:00:00.000Z"
+      },
+      {
+        "title": "A plugin for Core-lightning for rebalancing channels in a node",
+        "url": "https://insider.btcpp.dev/p/clboss",
+        "date": "2026-09-09T00:00:00.000Z"
+      },
+      {
+        "title": "Disclosure: Crashing CLN with a flood of pings",
+        "url": "https://delvingbitcoin.org/t/disclosure-crashing-cln-with-a-flood-of-pings/2846",
+        "date": "2026-09-09T00:00:00.000Z"
+      }
+    ]
+  },
+  "porto-alegre": {
+    "id": "porto-alegre",
+    "source": "rss",
+    "fetchedAt": "2026-09-26T11:09:21.125Z",
+    "topics": [
+      {
+        "title": "Peter Todd revive proposta de emissão de cauda no Bitcoin",
+        "url": "https://livecoins.com.br/emissao-de-cauda-pode-ser-a-proxima-grande-polemica-do-bitcoin-entenda-a-proposta/",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Payjoin chega à versão estável 1.0.0",
+        "url": "https://github.com/payjoin/rust-payjoin/releases",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Vinteum abre novo ciclo de fellowship",
+        "url": "https://vinteum.exe.xyz/blog/introducing-vinteums-new-fellowship-cycle",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "“Tripwire”: desabilitar opcodes de curva elíptica contra ameaça quântica",
+        "url": "https://groups.google.com/g/bitcoindev/c/aWYtPLVPZ3U",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Primeira transação com resistência pós-quântica minerada na mainnet do Bitcoin sem soft fork",
+        "url": "https://starkware.co/blog/the-first-quantum-safe-bitcoin-transaction-has-been-mined/",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Bitcoin Core mescla novo rate-limiting global de transações (PR #34628)",
+        "url": "https://github.com/bitcoin/bitcoin/pull/34628",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "BIP draft: “Segregated Data” — tirar dado arbitrário do OP_RETURN",
+        "url": "https://delvingbitcoin.org/t/bip-draft-segregated-data-a-prunable-script-isolated-block-region-for-data-carriage/2641",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "libsecp256k1 v0.8.0",
+        "url": "https://github.com/bitcoin-core/secp256k1/releases/tag/v0.8.0",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Bitcoin Core encerra desenvolvimento do HWI (Python) e comunidade migra para o BHWI (Rust)",
+        "url": "https://livecoins.com.br/bitcoin-core-se-prepara-para-encerrar-desenvolvimento-de-ferramenta-que-oferece-suporte-para-carteiras-de-hardware/",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "BIP-54 “Consensus Cleanup” enfrenta resistência política de mineradores",
+        "url": "https://news.bitcoin.com/crypto-news/after-bip-110-flops-bitcoins-next-soft-fork-faces-a-showdown/",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Conditional Message Transfer Contract (CMTC) contra channel jamming",
+        "url": "https://delvingbitcoin.org/t/conditional-message-transfer-contract-to-solve-jamming/2772",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "BOLT12 payer proofs viram parte da especificação",
+        "url": "https://github.com/lightning/bolts/pull/1346",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Vulnerabilidade de entropia insuficiente em wallets COLDCARD já rendeu cerca de 1.800 BTC roubados",
+        "url": "https://blog.coinkite.com/coldcard-mk3-seed-generation-warning/",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Sparrow Wallet v2.5.4 passa por auditoria defensiva assistida por IA após caso Coldcard",
+        "url": "https://decrypt.co/376755/bitcoin-sparrow-wallet-update-ai-fixes",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Duas vulnerabilidades de exaustão de memória no Core Lightning (connectd e gossipd)",
+        "url": "https://delvingbitcoin.org/t/vulnerability-disclosure-twin-memory-exhaustion-dos-vulnerabilidades-in-core-lightning/2731",
+        "date": "2026-09-16T00:00:00.000Z"
+      },
+      {
+        "title": "Ataque de spam de endereços no P2P do Bitcoin",
+        "url": "https://bnoc.xyz/t/address-relay-under-stress/163",
+        "date": "2026-09-16T00:00:00.000Z"
+      }
+    ]
+  },
+  "sao-paulo": {
+    "id": "sao-paulo",
+    "source": "rss",
+    "fetchedAt": "2026-09-26T11:09:21.125Z",
+    "topics": [
+      {
+        "title": "Signal do BitDevs SP",
+        "url": "https://signal.group/#CjQKIKRG6Gw3huCUVV57mu8fj_uOaQl4CrBBWdDlhKvMbag_EhAX7s2tuBB4YY8c71UWepPH",
+        "date": "2026-09-24T00:00:00.000Z"
+      },
+      {
+        "title": "Liquid Network Security Incident Assessment",
+        "url": "https://blog.blockstream.com/liquid-network-security-incident-assessment/",
+        "date": "2026-09-24T00:00:00.000Z"
+      },
+      {
+        "title": "Disclosure: LND doesn’t wait for enough confirmations when closing channels",
+        "url": "https://delvingbitcoin.org/t/disclosure-lnd-doesnt-wait-for-enough-confirmations-when-closing-channels/2800",
+        "date": "2026-09-24T00:00:00.000Z"
+      },
+      {
+        "title": "App Store Bitcoin Wallets Decompilation and Security Analysis",
+        "url": "https://kek.lol/research/appstore-wallets/",
+        "date": "2026-09-24T00:00:00.000Z"
+      },
+      {
+        "title": "New BIP draft for unspendable internal keys",
+        "url": "https://groups.google.com/g/bitcoindev/c/se3TkNnbno4",
+        "date": "2026-09-24T00:00:00.000Z"
+      },
+      {
+        "title": "The future of HWI",
+        "url": "https://github.com/bitcoin-core/HWI/issues/850",
+        "date": "2026-09-24T00:00:00.000Z"
+      },
+      {
+        "title": "Improvements in Utreexo initial block download",
+        "url": "https://delvingbitcoin.org/t/implicit-deletions-and-improvements-in-utreexo-ibd/2881",
+        "date": "2026-09-24T00:00:00.000Z"
+      },
+      {
+        "title": "CLN: contrib: add jaonoctus’s signing key 🤟🏻",
+        "url": "https://github.com/ElementsProject/lightning/pull/9536",
+        "date": "2026-09-24T00:00:00.000Z"
+      }
+    ]
+  },
+  "uberlandia": {
+    "id": "uberlandia",
+    "source": "rss",
+    "fetchedAt": "2026-09-26T11:09:21.125Z",
+    "topics": [
+      {
+        "title": "Análise do Sjors (+ clanker) sobre o bug da Liquid",
+        "url": "https://gist.github.com/Sjors/ca9e796a11efd841414cd711aa36eba6",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Mapa de BitDevs pelo Brasil",
+        "url": "https://bitdevs.com.br/",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Relatório de 4 anos da Vinteum",
+        "url": "https://www.vinteum.org/assets/files/Vinteum-Year-Four-Report-2026.pdf",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Zeus (security update 2026-08-05)",
+        "url": "https://zeusln.com/blog/security-update-2026-08-05/",
+        "date": "2026-09-17T00:00:00.000Z"
+      },
+      {
+        "title": "Harvest now, decrypt later e Silent Payments",
+        "url": "https://conduition.io/cryptography/hndl-silent-payments/",
+        "date": "2026-09-17T00:00:00.000Z"
+      }
+    ]
+  }
+}
