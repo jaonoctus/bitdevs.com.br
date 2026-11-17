@@ -4,6 +4,8 @@
   { "id": "curitiba", "city": "Curitiba", "country": "Brazil", "lat": -25.4284, "lng": -49.2733, "url": "https://curitibabitdevs.org/" },
   { "id": "florianopolis", "city": "Florianópolis", "country": "Brazil", "lat": -27.5954, "lng": -48.548, "url": "https://floripabitdevs.org/" },
   { "id": "porto-alegre", "city": "Porto Alegre", "country": "Brazil", "lat": -30.0346, "lng": -51.2177, "url": "https://poabitdevs.org/" },
+  { "id": "ribeirao-preto", "city": "Ribeirão Preto", "country": "Brazil", "lat": -21.1704, "lng": -47.8103, "url": "https://bitdevsinterior.org/", "eventCity": "ribeirao-preto" },
+  { "id": "sao-carlos", "city": "São Carlos", "country": "Brazil", "lat": -22.0087, "lng": -47.8908, "url": "https://bitdevsinterior.org/", "eventCity": "sao-carlos" },
   { "id": "sao-paulo", "city": "São Paulo", "country": "Brazil", "lat": -23.5505, "lng": -46.6333, "url": "https://saopaulobitdevs.org" },
   { "id": "uberlandia", "city": "Uberlândia", "country": "Brazil", "lat": -18.9186, "lng": -48.2772, "url": "https://udibitdevs.org/" }
 ]
