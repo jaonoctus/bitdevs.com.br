@@ -25,6 +25,7 @@ import { MS_PER_DAY, todayIndex } from '../src/day.ts'
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const BITDEVS_PATH = join(root, 'src/data/bitdevs.json')
 const EVENTS_PATH = join(root, 'src/data/events.json')
+const ICS_PATH = join(root, 'src/data/events.ics')
 
 /** Max upcoming events kept per community. */
 const MAX_EVENTS = 4
@@ -193,6 +194,93 @@ function extractUpcoming(html: string, baseUrl: string, today: number): NextEven
     .map(({ day: _day, ...ev }) => ev)
 }
 
+// --- iCalendar -------------------------------------------------------------
+
+/** Escape a TEXT value per RFC 5545 §3.3.11. */
+function icsEscape(value: string): string {
+  return value
+    .replace(/\\/g, '\\\\')
+    .replace(/;/g, '\\;')
+    .replace(/,/g, '\\,')
+    .replace(/\r?\n/g, '\\n')
+}
+
+/** Fold a content line at 75 octets without splitting a UTF-8 sequence
+ * (RFC 5545 §3.1). Continuation lines start with a single space. */
+function icsFold(line: string): string {
+  const encoder = new TextEncoder()
+  const parts: string[] = []
+  let current = ''
+  let bytes = 0
+  for (const char of line) {
+    const size = encoder.encode(char).length
+    const cap = parts.length === 0 ? 75 : 74
+    if (bytes + size > cap) {
+      parts.push(parts.length === 0 ? current : ` ${current}`)
+      current = char
+      bytes = size
+    } else {
+      current += char
+      bytes += size
+    }
+  }
+  parts.push(parts.length === 0 ? current : ` ${current}`)
+  return parts.join('\r\n')
+}
+
+const ymd = (iso: string): string => iso.slice(0, 10).replace(/-/g, '')
+
+const nextYmd = (iso: string): string =>
+  ymd(new Date(Date.parse(`${iso.slice(0, 10)}T00:00:00Z`) + MS_PER_DAY).toISOString())
+
+const stamp = (d: Date): string => d.toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '')
+
+/** One VEVENT per upcoming meeting, all-day (the sites publish a date, not a
+ * time; a per-community start time would need a new field in bitdevs.json). */
+function buildIcs(index: EventsIndex, cities: BitDev[], now: Date): string {
+  const byId = new Map(cities.map((c) => [c.id, c]))
+  const lines = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//BitDevs Brasil//bitdevs.com.br//PT-BR',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'X-WR-CALNAME:BitDevs Brasil',
+    'X-WR-CALDESC:Próximos encontros dos grupos BitDevs no Brasil',
+    'X-WR-TIMEZONE:America/Sao_Paulo',
+    'REFRESH-INTERVAL;VALUE=DURATION:PT6H',
+    'X-PUBLISHED-TTL:PT6H',
+  ]
+  const dtstamp = stamp(now)
+  // Chronological, so a client that shows the file as-is reads like an agenda.
+  const items: Array<{ id: string; name: string; siteUrl?: string; ev: NextEvent }> = []
+  for (const [id, entry] of Object.entries(index)) {
+    const city = byId.get(id)
+    for (const ev of entry.events) {
+      items.push({ id, name: city?.city ?? id, siteUrl: city?.url, ev })
+    }
+  }
+  items.sort((a, b) => a.ev.date.localeCompare(b.ev.date) || a.name.localeCompare(b.name, 'pt-BR'))
+
+  for (const { id, name, siteUrl, ev } of items) {
+    lines.push(
+      'BEGIN:VEVENT',
+      `UID:${id}-${ymd(ev.date)}@bitdevs.com.br`,
+      `DTSTAMP:${dtstamp}`,
+      `DTSTART;VALUE=DATE:${ymd(ev.date)}`,
+      `DTEND;VALUE=DATE:${nextYmd(ev.date)}`,
+      `SUMMARY:${icsEscape(`${ev.title} — ${name}`)}`,
+      `LOCATION:${icsEscape(siteUrl ? `${name}, Brazil` : name)}`,
+      `DESCRIPTION:${icsEscape(`${ev.title}, no BitDevs ${name}.${siteUrl ? ` Site do grupo: ${siteUrl}` : ''}`)}`,
+      `URL:${ev.url}`,
+      'TRANSP:TRANSPARENT',
+      'END:VEVENT',
+    )
+  }
+  lines.push('END:VCALENDAR')
+  return lines.map(icsFold).join('\r\n') + '\r\n'
+}
+
 // --- orchestration ---------------------------------------------------------
 
 interface Outcome {
@@ -266,6 +354,11 @@ async function main() {
   for (const key of Object.keys(index).sort()) sorted[key] = index[key]
   writeFileSync(EVENTS_PATH, JSON.stringify(sorted, null, 2) + '\n')
 
+  // Same data as a subscribe-able calendar; the cron publishes it next to
+  // events.json on the `data` branch.
+  const ics = buildIcs(sorted, cities, new Date())
+  writeFileSync(ICS_PATH, ics)
+
   // --- coverage report -----------------------------------------------------
   const withEvents = outcomes.filter((o) => o.events && o.events.length > 0)
   const errored = outcomes.filter((o) => o.error)
@@ -284,6 +377,7 @@ async function main() {
     for (const o of errored) console.log(`  ${o.city.city}: ${o.error}`)
   }
   console.log(`\nWrote ${EVENTS_PATH}`)
+  console.log(`Wrote ${ICS_PATH} (${(ics.match(/BEGIN:VEVENT/g) ?? []).length} events)`)
 }
 
 main().catch((err) => {

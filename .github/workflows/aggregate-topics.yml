@@ -42,10 +42,11 @@ jobs:
           mkdir -p publish
           cp src/data/topics.json publish/topics.json
           cp src/data/events.json publish/events.json 2>/dev/null || true
+          cp src/data/events.ics publish/events.ics 2>/dev/null || true
 
-      # Force-push a single commit holding topics.json + events.json to the
-      # `data` branch (created on first run). Unprotected, so no PR/branch-
-      # protection friction.
+      # Force-push a single commit holding topics.json + events.json (+ the
+      # events.ics calendar) to the `data` branch (created on first run).
+      # Unprotected, so no PR/branch-protection friction.
       - name: Publish to data branch
         uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4
         with:
