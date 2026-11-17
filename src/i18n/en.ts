@@ -32,6 +32,8 @@ export const en: Dict = {
   events: {
     title: 'Upcoming BitDevs',
     announced: 'announced',
+    subscribe: 'subscribe .ics',
+    subscribeHint: 'Get the meetups in your calendar',
     months: [
       'January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December',

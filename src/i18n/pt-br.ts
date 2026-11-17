@@ -37,6 +37,9 @@ export const ptBR = {
   events: {
     title: 'Próximos BitDevs',
     announced: 'anunciados',
+    /** Label of the link that subscribes to the .ics calendar feed. */
+    subscribe: 'assinar .ics',
+    subscribeHint: 'Receba os encontros no seu calendário',
     months: [
       'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
       'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro',
