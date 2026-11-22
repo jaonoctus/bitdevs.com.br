@@ -192,9 +192,17 @@ function parseBlock(block: string, baseUrl: string): RawEvent | null {
   return { title, url, date: parsed.iso, day: parsed.day, ...(citySlug ? { citySlug } : {}) }
 }
 
+interface Extracted {
+  events: NextEvent[]
+  /** False when `eventCity` was given and no row on the page, past or future,
+   * carries that tag: a typo in bitdevs.json or a renamed tag on the site,
+   * rather than a community with nothing scheduled. */
+  tagSeen: boolean
+}
+
 /** Extract upcoming events (day >= today) from a homepage, soonest first.
  * When `eventCity` is given, only rows tagged with that city are kept. */
-function extractUpcoming(html: string, baseUrl: string, today: number, eventCity?: string): NextEvent[] {
+function extractUpcoming(html: string, baseUrl: string, today: number, eventCity?: string): Extracted {
   const blocks: string[] = []
   const homePostRe = /<div[^>]*class=["'][^"']*Home-posts-post\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi
   for (let m; (m = homePostRe.exec(html)); ) blocks.push(m[1])
@@ -203,19 +211,23 @@ function extractUpcoming(html: string, baseUrl: string, today: number, eventCity
 
   const seen = new Set<string>()
   const upcoming: RawEvent[] = []
+  let tagSeen = !eventCity
   for (const block of blocks) {
     const ev = parseBlock(block, baseUrl)
-    if (!ev || ev.day < today || CANCELLED.test(ev.title)) continue
+    if (!ev) continue
     if (eventCity && ev.citySlug !== eventCity) continue
+    tagSeen = true
+    if (ev.day < today || CANCELLED.test(ev.title)) continue
     const key = `${ev.date}|${ev.title.toLowerCase()}`
     if (seen.has(key)) continue
     seen.add(key)
     upcoming.push(ev)
   }
-  return upcoming
+  const events = upcoming
     .sort((a, b) => a.day - b.day)
     .slice(0, MAX_EVENTS)
     .map(({ day: _day, citySlug: _city, ...ev }) => ev)
+  return { events, tagSeen }
 }
 
 // --- orchestration ---------------------------------------------------------
@@ -224,6 +236,8 @@ interface Outcome {
   city: BitDev
   events?: NextEvent[]
   skipped?: string
+  /** Why a fetched page yielded nothing, when that is worth a look. */
+  note?: string
   error?: string
 }
 
@@ -247,7 +261,7 @@ async function main() {
       ? `ok (${o.events.length}) next ${o.events[0].date}`
       : o.error
         ? `err ${o.error}`
-        : `none${o.skipped ? ` (${o.skipped})` : ''}`
+        : `none${o.skipped || o.note ? ` (${o.skipped ?? o.note})` : ''}`
     console.log(`[${String(done).padStart(2)}/${cities.length}] ${o.city.city}: ${tag}`)
     return o
   }
@@ -269,7 +283,12 @@ async function main() {
       }
       try {
         const html = await pageOf(city.url)
-        return report({ city, events: extractUpcoming(html, city.url, today, city.eventCity) })
+        const { events, tagSeen } = extractUpcoming(html, city.url, today, city.eventCity)
+        return report({
+          city,
+          events,
+          ...(tagSeen ? {} : { note: `no rows tagged "${city.eventCity}"` }),
+        })
       } catch (err) {
         return report({ city, error: (err as Error).message })
       }
@@ -310,6 +329,11 @@ async function main() {
     `\nCoverage: ${withEvents.length}/${cities.length} communities have an upcoming event`,
   )
   console.log(`  skipped: ${outcomes.filter((o) => o.skipped).length}, errored: ${errored.length}`)
+  const untagged = outcomes.filter((o) => o.note)
+  if (untagged.length) {
+    console.log('\ncheck eventCity:')
+    for (const o of untagged) console.log(`  ${o.city.city}: ${o.note}`)
+  }
   console.log('\nUpcoming events (soonest first):')
   for (const { city, ev } of flat) console.log(`  ${ev.date}  ${city.padEnd(20)} ${ev.title}`)
   if (errored.length) {
