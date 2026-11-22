@@ -403,6 +403,20 @@ async function main() {
     return o
   }
 
+  // Cities that share a site (bitdevsinterior.org serves São Carlos and
+  // Ribeirão Preto) read the same feed. One request, timeout included, is
+  // shared by all of them, so they always get the same topics or the same
+  // error and the app can show the group once.
+  const feeds = new Map<string, Promise<RssResult>>()
+  const rssOf = (city: BitDev): Promise<RssResult> => {
+    let feed = feeds.get(city.url)
+    if (!feed) {
+      feed = withTimeout(rssAdapter(city), 25_000, city.url)
+      feeds.set(city.url, feed)
+    }
+    return feed
+  }
+
   const outcomes = await pool<BitDev, Outcome>(
     cities,
     async (city) => {
@@ -421,7 +435,7 @@ async function main() {
       }
 
       try {
-        const r = await withTimeout(rssAdapter(city), 25_000, city.city)
+        const r = await rssOf(city)
         return report(
           r.topics.length
             ? { city, source: 'rss', topics: r.topics, seminar: r.seminar }
