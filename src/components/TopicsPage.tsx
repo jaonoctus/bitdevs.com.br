@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import type { BitDev, TopicsIndex } from '../types'
 import TopicsSpotlight from './TopicsSpotlight'
 import { useI18n } from '../i18n'
+import { groupTopics } from '../topics'
 
 interface Props {
   cities: BitDev[]
@@ -11,16 +12,10 @@ interface Props {
 export default function TopicsPage({ cities, topics }: Props) {
   const { t } = useI18n()
   const stats = useMemo(() => {
-    let communities = 0
-    let total = 0
-    for (const city of cities) {
-      const t = topics[city.id]
-      if (t && t.topics.length > 0) {
-        communities++
-        total += t.topics.length
-      }
-    }
-    return { communities, total }
+    // Counted per group, so a group that meets in two cities is one community
+    // and its topics are not counted twice.
+    const groups = groupTopics(cities, topics)
+    return { communities: groups.length, total: groups.reduce((sum, g) => sum + g.topics.length, 0) }
   }, [cities, topics])
 
   return (

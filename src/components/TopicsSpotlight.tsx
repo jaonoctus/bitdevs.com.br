@@ -2,19 +2,12 @@ import { useEffect, useMemo, useState } from 'react'
 import type { BitDev, TopicsIndex } from '../types'
 import { countryName, useI18n, type Dict } from '../i18n'
 import { dayIndex, todayIndex } from '../day'
+import { groupTopics } from '../topics'
 
 // Topics shown per community before "Show all".
 const PREVIEW = 3
 // Auto-advance interval (ms).
 const INTERVAL = 6000
-
-interface Community {
-  city: string
-  country: string
-  siteUrl: string
-  date?: string
-  topics: { title: string; url?: string }[]
-}
 
 interface Props {
   cities: BitDev[]
@@ -57,18 +50,7 @@ function Chevron({ dir }: { dir: 'left' | 'right' }) {
 
 export default function TopicsSpotlight({ cities, topics }: Props) {
   const { t } = useI18n()
-  const communities = useMemo<Community[]>(
-    () =>
-      cities
-        .map((c): Community | null => {
-          const entry = topics[c.id]
-          if (!entry || entry.topics.length === 0) return null
-          return { city: c.city, country: c.country, siteUrl: c.url, date: entry.topics[0].date, topics: entry.topics }
-        })
-        .filter((c): c is Community => c !== null)
-        .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? '')),
-    [cities, topics],
-  )
+  const communities = useMemo(() => groupTopics(cities, topics), [cities, topics])
 
   const n = communities.length
   const [idx, setIdx] = useState(0)
@@ -133,7 +115,7 @@ export default function TopicsSpotlight({ cities, topics }: Props) {
       >
         <div className="flex items-baseline justify-between gap-4">
           <h3 className="m-0 font-sans text-[18px] font-bold tracking-[-0.02em] text-strong">
-            {cur.city}
+            {cur.cities.join(' / ')}
             <span className="ml-[10px] font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-muted">
               {countryName(t, cur.country)}
             </span>
