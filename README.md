@@ -76,6 +76,7 @@ changes are needed.
 | `lat`     | number | Decimal-degree latitude of the city center.              |
 | `lng`     | number | Decimal-degree longitude of the city center.             |
 | `url`     | string | Public link to the group (website, Meetup, X or GitHub). |
+| `eventCity` | string | Optional. Only for a site shared by several cities: the slug of the city tag its event rows carry. |
 
 #### Guidelines
 
@@ -86,6 +87,11 @@ changes are needed.
   Google Maps (right-click a location to copy `lat, lng`) or
   [latlong.net](https://www.latlong.net/).
 - Make sure the group is **active** and the link works.
+- If one group meets in more than one city and lists them on the same site (each
+  event row tagged with its city), add one entry per city with the same `url` and
+  set `eventCity` to the slug of that city's tag (`São Carlos` → `sao-carlos`).
+  Each upcoming event then goes to the city it is tagged with, and the group's
+  topics are shown once for all of its cities.
 - Run `bun run build` before opening the PR to confirm everything still compiles.
 
 ## Project structure

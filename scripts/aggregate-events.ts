@@ -14,6 +14,13 @@
  *                  YYYY</span> &raquo; <a class="...-title" href>Title</a></div>
  *   - posts/time:  <li><time>DD Mon YYYY</time> » <a href>Title</a></li>
  *
+ * A site that hosts more than one city (bitdevsinterior.org lists São Carlos
+ * and Ribeirão Preto on the same homepage) tags each row with
+ * <span class="Home-posts-post-city">City</span>. The communities that share
+ * that URL set `eventCity` in bitdevs.json, the URL is fetched once, and each
+ * row is attributed to the community whose tag it carries. Rows without a tag
+ * are dropped for those communities instead of being counted twice.
+ *
  * Run locally: bun run scripts/aggregate-events.ts
  */
 import { readFileSync, writeFileSync } from 'node:fs'
@@ -67,6 +74,17 @@ function absolute(href: string, base: string): string {
   } catch {
     return href
   }
+}
+
+/** "São Carlos" -> "sao-carlos", the slug used in bitdevs.json and post front
+ * matter, so a display tag can be compared with `eventCity`. */
+function slugify(name: string): string {
+  return name
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 const hostOfUrl = (url: string): string => {
@@ -145,6 +163,8 @@ function parseEventDate(raw: string): ParsedDate | null {
 
 interface RawEvent extends NextEvent {
   day: number
+  /** Slug of the row's city tag, when the page tags its rows. */
+  citySlug?: string
 }
 
 /** Pull a date + title from one event block (a Home-posts-post div or a
@@ -166,11 +186,23 @@ function parseBlock(block: string, baseUrl: string): RawEvent | null {
   // from bitdevs.json and is already http(s).
   const url = anchor ? absolute(decodeEntities(anchor[1]), baseUrl) : baseUrl
   if (!/^https?:\/\//i.test(url)) return null
-  return { title, url, date: parsed.iso, day: parsed.day }
+
+  const cityRaw = block.match(/class=["'][^"']*-city\b[^"']*["'][^>]*>([\s\S]*?)<\/span/i)?.[1]
+  const citySlug = cityRaw ? slugify(stripTags(cityRaw)) : undefined
+  return { title, url, date: parsed.iso, day: parsed.day, ...(citySlug ? { citySlug } : {}) }
 }
 
-/** Extract upcoming events (day >= today) from a homepage, soonest first. */
-function extractUpcoming(html: string, baseUrl: string, today: number): NextEvent[] {
+interface Extracted {
+  events: NextEvent[]
+  /** False when `eventCity` was given and no row on the page, past or future,
+   * carries that tag: a typo in bitdevs.json or a renamed tag on the site,
+   * rather than a community with nothing scheduled. */
+  tagSeen: boolean
+}
+
+/** Extract upcoming events (day >= today) from a homepage, soonest first.
+ * When `eventCity` is given, only rows tagged with that city are kept. */
+function extractUpcoming(html: string, baseUrl: string, today: number, eventCity?: string): Extracted {
   const blocks: string[] = []
   const homePostRe = /<div[^>]*class=["'][^"']*Home-posts-post\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi
   for (let m; (m = homePostRe.exec(html)); ) blocks.push(m[1])
@@ -179,18 +211,23 @@ function extractUpcoming(html: string, baseUrl: string, today: number): NextEven
 
   const seen = new Set<string>()
   const upcoming: RawEvent[] = []
+  let tagSeen = !eventCity
   for (const block of blocks) {
     const ev = parseBlock(block, baseUrl)
-    if (!ev || ev.day < today || CANCELLED.test(ev.title)) continue
+    if (!ev) continue
+    if (eventCity && ev.citySlug !== eventCity) continue
+    tagSeen = true
+    if (ev.day < today || CANCELLED.test(ev.title)) continue
     const key = `${ev.date}|${ev.title.toLowerCase()}`
     if (seen.has(key)) continue
     seen.add(key)
     upcoming.push(ev)
   }
-  return upcoming
+  const events = upcoming
     .sort((a, b) => a.day - b.day)
     .slice(0, MAX_EVENTS)
-    .map(({ day: _day, ...ev }) => ev)
+    .map(({ day: _day, citySlug: _city, ...ev }) => ev)
+  return { events, tagSeen }
 }
 
 // --- orchestration ---------------------------------------------------------
@@ -199,6 +236,8 @@ interface Outcome {
   city: BitDev
   events?: NextEvent[]
   skipped?: string
+  /** Why a fetched page yielded nothing, when that is worth a look. */
+  note?: string
   error?: string
 }
 
@@ -222,9 +261,17 @@ async function main() {
       ? `ok (${o.events.length}) next ${o.events[0].date}`
       : o.error
         ? `err ${o.error}`
-        : `none${o.skipped ? ` (${o.skipped})` : ''}`
+        : `none${o.skipped || o.note ? ` (${o.skipped ?? o.note})` : ''}`
     console.log(`[${String(done).padStart(2)}/${cities.length}] ${o.city.city}: ${tag}`)
     return o
+  }
+
+  // A URL shared by several cities (bitdevsinterior.org serves São Carlos and
+  // Ribeirão Preto) is fetched once and split by the city tag.
+  const pages = new Map<string, Promise<string>>()
+  const pageOf = (url: string): Promise<string> => {
+    if (!pages.has(url)) pages.set(url, fetchText(url))
+    return pages.get(url)!
   }
 
   const outcomes = await pool<BitDev, Outcome>(
@@ -235,8 +282,13 @@ async function main() {
         return report({ city, skipped: 'non-website' })
       }
       try {
-        const html = await fetchText(city.url)
-        return report({ city, events: extractUpcoming(html, city.url, today) })
+        const html = await pageOf(city.url)
+        const { events, tagSeen } = extractUpcoming(html, city.url, today, city.eventCity)
+        return report({
+          city,
+          events,
+          ...(tagSeen ? {} : { note: `no rows tagged "${city.eventCity}"` }),
+        })
       } catch (err) {
         return report({ city, error: (err as Error).message })
       }
@@ -277,6 +329,11 @@ async function main() {
     `\nCoverage: ${withEvents.length}/${cities.length} communities have an upcoming event`,
   )
   console.log(`  skipped: ${outcomes.filter((o) => o.skipped).length}, errored: ${errored.length}`)
+  const untagged = outcomes.filter((o) => o.note)
+  if (untagged.length) {
+    console.log('\ncheck eventCity:')
+    for (const o of untagged) console.log(`  ${o.city.city}: ${o.note}`)
+  }
   console.log('\nUpcoming events (soonest first):')
   for (const { city, ev } of flat) console.log(`  ${ev.date}  ${city.padEnd(20)} ${ev.title}`)
   if (errored.length) {

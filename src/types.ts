@@ -11,6 +11,13 @@ export interface BitDev {
   lng: number
   /** Public URL of the local BitDevs group. */
   url: string
+  /**
+   * Slug of the city tag this community uses on a site shared with other
+   * cities (e.g. "sao-carlos" in the `Home-posts-post-city` span). Only the
+   * rows carrying this tag are attributed to the community. Leave it out when
+   * the site belongs to a single city.
+   */
+  eventCity?: string
 }
 
 /** A single meeting topic surfaced from a community's source. */
