@@ -1,0 +1,24 @@
+{
+  "florianopolis": {
+    "id": "florianopolis",
+    "fetchedAt": "2026-11-27T16:26:48.167Z",
+    "events": [
+      {
+        "title": "Seminário Socrático #37",
+        "url": "https://floripabitdevs.org/2026-12-03-socratic-seminar-37",
+        "date": "2026-12-03"
+      }
+    ]
+  },
+  "sao-paulo": {
+    "id": "sao-paulo",
+    "fetchedAt": "2026-11-27T16:26:48.167Z",
+    "events": [
+      {
+        "title": "Seminário Socrático 051",
+        "url": "https://saopaulobitdevs.org/2026-12-17-socratic-seminar-051",
+        "date": "2026-12-17"
+      }
+    ]
+  }
+}
